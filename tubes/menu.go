@@ -18,7 +18,7 @@ func menu() {
 		fmt.Println("4. Urutkan Berdasarkan Biaya")
 		fmt.Println("5. Cari Pasien Berdasarkan Nama")
 		fmt.Println("6. Cari Pasien Berdasarkan Umur")
-		fmt.Println("0. Keluar")
+		fmt.Println("0. Exit")
 		fmt.Println("Pilih menu: ")
 
 		var pilihan string
