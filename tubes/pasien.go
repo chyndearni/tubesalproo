@@ -38,7 +38,7 @@ func inputPasien() {
 
 	baru := Pasien{Nama: nama, Umur: umur, Penyakit: penyakit, Biaya: biaya}
 	daftarPasien = append(daftarPasien, baru)
-	fmt.Print("Pasien berhasil ditambahkan!\n")
+	fmt.Print("Pasien Berhasil Ditambahkan!\n")
 }
 
 func tampilkanPasien() {
