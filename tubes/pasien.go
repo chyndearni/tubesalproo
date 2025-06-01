@@ -24,17 +24,31 @@ func inputPasien() {
 	nama, _ := reader.ReadString('\n')
 	nama = strings.TrimSpace(nama)
 
-	fmt.Print("Masukkan Umur Pasien: ")
 	var umur int
-	fmt.Scanln(&umur)
+	for {
+		fmt.Print("Masukkan Umur Pasien: ")
+		fmt.Scanln(&umur)
+		if umur < 0 {
+			fmt.Println("Umur tidak boleh negatif. Silakan masukkan lagi.")
+		} else {
+			break
+		}
+	}
 
 	fmt.Print("Masukkan Penyakit: ")
 	penyakit, _ := reader.ReadString('\n')
 	penyakit = strings.TrimSpace(penyakit)
 
-	fmt.Print("Masukkan Biaya: ")
 	var biaya int
-	fmt.Scanln(&biaya)
+	for {
+		fmt.Print("Masukkan Biaya: ")
+		fmt.Scanln(&biaya)
+		if biaya < 0 {
+			fmt.Println("Biaya tidak boleh negatif. Silakan masukkan lagi.")
+		} else {
+			break
+		}
+	}
 
 	baru := Pasien{Nama: nama, Umur: umur, Penyakit: penyakit, Biaya: biaya}
 	daftarPasien = append(daftarPasien, baru)
