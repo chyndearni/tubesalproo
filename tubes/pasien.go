@@ -43,7 +43,7 @@ func inputPasien() {
 	for {
 		fmt.Print("Masukkan Biaya: ")
 		fmt.Scanln(&biaya)
-		if biaya < 0 {
+		if biaya >= 1000 {
 			fmt.Println("Biaya tidak boleh negatif. Silakan masukkan lagi.")
 		} else {
 			break
