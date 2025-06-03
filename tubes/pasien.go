@@ -43,11 +43,10 @@ func inputPasien() {
 	for {
 		fmt.Print("Masukkan Biaya: ")
 		fmt.Scanln(&biaya)
-		if biaya < 0 {
-			fmt.Println("Biaya tidak boleh negatif. Silakan masukkan lagi.")
-		} else {
+		if biaya >= 1000 {
 			break
 		}
+		fmt.Println("Biaya terlalu kecil atau tidak valid. Harus minimal Rp1000.")
 	}
 
 	baru := Pasien{Nama: nama, Umur: umur, Penyakit: penyakit, Biaya: biaya}
