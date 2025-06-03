@@ -29,7 +29,7 @@ func inputPasien() {
 		fmt.Print("Masukkan Umur Pasien: ")
 		fmt.Scanln(&umur)
 		if umur < 0 {
-			fmt.Println("Umur tidak boleh negatif. Silakan masukkan lagi.")
+			fmt.Println("Umur tidak boleh negatif")
 		} else {
 			break
 		}
