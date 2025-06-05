@@ -1,10 +1,3 @@
-package main
-
-import (
-	"fmt"
-	"strings"
-)
-
 func linearSearchNama(data []Pasien, keyword string) {
 	clearScreen()
 	found := false
@@ -13,7 +6,6 @@ func linearSearchNama(data []Pasien, keyword string) {
 			fmt.Print("Pasien ditemukan:")
 			fmt.Printf("Nama: %s | Umur: %d | Penyakit: %s | Biaya: Rp%d\n\n", p.Nama, p.Umur, p.Penyakit, p.Biaya)
 			found = true
-			break
 		}
 	}
 	if !found {
@@ -32,20 +24,21 @@ func binarySearchUmur(data []Pasien, target int) {
 	high := len(data) - 1
 	found := false
 
-	for low <= high {
+	for low <= high && !found {
 		mid := (low + high) / 2
 		if data[mid].Umur == target {
 			fmt.Print("Pasien dengan umur ditemukan:")
 			fmt.Printf("Nama: %s | Umur: %d | Penyakit: %s | Biaya: Rp%d\n\n", data[mid].Nama, data[mid].Umur, data[mid].Penyakit, data[mid].Biaya)
 			found = true
-			break
 		} else if data[mid].Umur < target {
 			low = mid + 1
 		} else {
 			high = mid - 1
 		}
 	}
+
 	if !found {
 		fmt.Print("Tidak ada pasien dengan umur tersebut.\n")
 	}
 }
+
