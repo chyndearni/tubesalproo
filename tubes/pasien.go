@@ -20,18 +20,20 @@ func inputPasien() {
 	clearScreen()
 
 	reader := bufio.NewReader(os.Stdin)
+
 	fmt.Print("Masukkan Nama Pasien: ")
 	nama, _ := reader.ReadString('\n')
 	nama = strings.TrimSpace(nama)
 
 	var umur int
-	for {
+	valid := false
+	for !valid {
 		fmt.Print("Masukkan Umur Pasien: ")
 		fmt.Scanln(&umur)
-		if umur < 0 {
-			fmt.Println("Umur tidak boleh negatif")
+		if umur < 1 {
+			fmt.Println("Umur tidak valid")
 		} else {
-			break
+			valid = true
 		}
 	}
 
@@ -40,17 +42,23 @@ func inputPasien() {
 	penyakit = strings.TrimSpace(penyakit)
 
 	var biaya int
-	for {
+	validBiaya := false
+	for !validBiaya {
 		fmt.Print("Masukkan Biaya: ")
 		fmt.Scanln(&biaya)
 		if biaya <= 1000 {
-			fmt.Println("Biaya tidak boleh negatif. Silakan masukkan lagi.")
+			fmt.Println("Biaya harus lebih dari 1000. Silakan masukkan lagi.")
 		} else {
-			break
+			validBiaya = true
 		}
 	}
 
-	baru := Pasien{Nama: nama, Umur: umur, Penyakit: penyakit, Biaya: biaya}
+	baru := Pasien{
+		Nama:     nama,
+		Umur:     umur,
+		Penyakit: penyakit,
+		Biaya:    biaya,
+	}
 	daftarPasien = append(daftarPasien, baru)
 	fmt.Print("Pasien Berhasil Ditambahkan!\n")
 }
