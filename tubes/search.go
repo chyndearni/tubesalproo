@@ -1,3 +1,5 @@
+package main
+
 func linearSearchNama(data []Pasien, keyword string) {
 	clearScreen()
 	found := false
