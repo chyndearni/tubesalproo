@@ -20,6 +20,7 @@ type Ruangan struct {
 }
 
 var daftarPasien []Pasien
+var daftarRuangan []Ruangan
 
 func inputPasien() {
 	clearScreen()
