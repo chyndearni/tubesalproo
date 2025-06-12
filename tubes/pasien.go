@@ -13,6 +13,11 @@ type Pasien struct {
 	Penyakit string
 	Biaya    int
 }
+type Ruangan struct {
+	NamaRuangan string
+	Tipe        string
+	Kapasitas   int
+}
 
 var daftarPasien []Pasien
 
