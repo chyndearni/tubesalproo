@@ -81,3 +81,42 @@ func tampilkanPasien() {
 	}
 	fmt.Print()
 }
+func inputRuangan() {
+	clearScreen()
+
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Masukkan Nama Ruangan: ")
+	nama, _ := reader.ReadString('\n')
+	nama = strings.TrimSpace(nama)
+
+	fmt.Print("Masukkan Tipe Ruangan: ")
+	tipe, _ := reader.ReadString('\n')
+	tipe = strings.TrimSpace(tipe)
+
+	var kapasitas int
+	for {
+		fmt.Print("Masukkan Kapasitas Ruangan: ")
+		fmt.Scanln(&kapasitas)
+		if kapasitas <= 0 {
+			fmt.Println("Kapasitas harus lebih dari 0.")
+		} else {
+			break
+		}
+	}
+
+	ruanganBaru := Ruangan{NamaRuangan: nama, Tipe: tipe, Kapasitas: kapasitas}
+	daftarRuangan = append(daftarRuangan, ruanganBaru)
+	fmt.Println("Data Ruangan Berhasil Ditambahkan!")
+}
+
+func tampilkanRuangan() {
+	clearScreen()
+	if len(daftarRuangan) == 0 {
+		fmt.Println("Belum ada data ruangan.")
+		return
+	}
+	fmt.Println("=== Daftar Ruangan ===")
+	for i, r := range daftarRuangan {
+		fmt.Printf("%d. Nama: %s | Tipe: %s | Kapasitas: %d\n", i+1, r.NamaRuangan, r.Tipe, r.Kapasitas)
+	}
+}
