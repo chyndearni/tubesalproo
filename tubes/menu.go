@@ -18,6 +18,10 @@ func menu() {
 		fmt.Println("4. Urutkan Berdasarkan Biaya")
 		fmt.Println("5. Cari Pasien Berdasarkan Nama")
 		fmt.Println("6. Cari Pasien Berdasarkan Umur")
+		fmt.Println("7. Input Data Dokter")
+		fmt.Println("8. Tampilkan Semua Dokter")
+		fmt.Println("9. Input Data Ruangan")
+		fmt.Println("10. Tampilkan Semua Ruangan")
 		fmt.Println("0. Exit")
 		fmt.Println("Pilih menu: ")
 
@@ -56,6 +60,18 @@ func menu() {
 			} else {
 				fmt.Print("Input umur tidak valid.\n")
 			}
+			pause()
+		case "7":
+			inputDokter()
+			pause()
+		case "8":
+			tampilkanDokter()
+			pause()
+		case "9":
+			inputRuangan()
+			pause()
+		case "10":
+			tampilkanRuangan()
 			pause()
 		case "0":
 			fmt.Print("Keluar dari program. Sampai jumpa!")
