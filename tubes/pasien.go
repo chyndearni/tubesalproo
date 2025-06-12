@@ -13,6 +13,11 @@ type Pasien struct {
 	Penyakit string
 	Biaya    int
 }
+type Dokter struct {
+	Nama      string
+	Spesialis string
+	NomorID   string
+}
 type Ruangan struct {
 	NamaRuangan string
 	Tipe        string
@@ -20,6 +25,7 @@ type Ruangan struct {
 }
 
 var daftarPasien []Pasien
+var daftarDokter []Dokter
 var daftarRuangan []Ruangan
 
 func inputPasien() {
@@ -81,6 +87,39 @@ func tampilkanPasien() {
 	}
 	fmt.Print()
 }
+func inputDokter() {
+	clearScreen()
+
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Masukkan Nama Dokter: ")
+	nama, _ := reader.ReadString('\n')
+	nama = strings.TrimSpace(nama)
+
+	fmt.Print("Masukkan Spesialis: ")
+	spesialis, _ := reader.ReadString('\n')
+	spesialis = strings.TrimSpace(spesialis)
+
+	fmt.Print("Masukkan Nomor ID Dokter: ")
+	nomorID, _ := reader.ReadString('\n')
+	nomorID = strings.TrimSpace(nomorID)
+
+	dokterBaru := Dokter{Nama: nama, Spesialis: spesialis, NomorID: nomorID}
+	daftarDokter = append(daftarDokter, dokterBaru)
+	fmt.Println("Data Dokter Berhasil Ditambahkan!")
+}
+
+func tampilkanDokter() {
+	clearScreen()
+	if len(daftarDokter) == 0 {
+		fmt.Println("Belum ada data dokter.")
+		return
+	}
+	fmt.Println("=== Daftar Dokter ===")
+	for i, d := range daftarDokter {
+		fmt.Printf("%d. Nama: %s | Spesialis: %s | Nomor ID: %s\n", i+1, d.Nama, d.Spesialis, d.NomorID)
+	}
+}
+
 func inputRuangan() {
 	clearScreen()
 
